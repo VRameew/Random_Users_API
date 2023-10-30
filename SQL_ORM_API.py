@@ -34,20 +34,20 @@ async def last_id_requestion() -> int:
     """  This function realised find last request number in SQL base.   """
     return session.query(sa.func.coalesce(sa.func.max(Table.column), 0)).scalar()
 
-async def save_users_data(data: dict):
+async def save_users_data(data_dict: dict):
     """   This is saving function, in cycle parsing data from dictionary.
     id_requestion is variable for identityfy data others requests.
     """
     id_requestion = last_id_requestion() + 1
-        for item in data["users"]:
-            data = UserData(
-            id_requestion=id_requestion,
-            gender=item['gender'],
-            age=item['age'],
-            FIO=item['f_i_o'],
-            address=item['adress'],
-            email=item['email'],
-            login=item['login']
-            )
-            session.add(data)#Preordering data
-            session.commit()#Save data in SQL
+    for item in data_dict.get('users'):
+        data = UserData(
+        id_requestion=id_requestion,
+        gender=item['gender'],
+        age=item['age'],
+        FIO=item['f_i_o'],
+        address=item['adress'],
+        email=item['email'],
+        login=item['login']
+        )
+        session.add(data)#Preordering data
+        session.commit()#Save data in SQL

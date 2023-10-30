@@ -1,7 +1,7 @@
 from generate_users import generate_user as gu
 from SQL_ORM_API import save_users_data as save
 from fastapi import FastAPI
-import JSON
+import json
 
 app = FastAPI()
 
