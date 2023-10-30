@@ -7,6 +7,9 @@ app = FastAPI()
 
 @app.post('/api/{integer}')
 async def response_question(integer: int):
+    """  POST method takes integer for function.
+    Function generate dictionary, then this dictionary saved in SQL,
+    and return to user like JSON  """
     data = gu(integer)
     save(data)
     return json.dump(data)

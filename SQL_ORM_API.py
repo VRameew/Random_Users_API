@@ -4,9 +4,9 @@ from sqlalchemy.ext.declarative import declarative_base
 import psycopg2
 
 
-#Data class for SQL base
-Base = declarative_base()
 
+Base = declarative_base()
+#Data class for SQL base
 class UserData(Base):
     __tablename__ = "UserData"
 
@@ -31,9 +31,13 @@ DBSession = sessionmaker(
 session = DBSession()
 
 async def last_id_requestion() -> int:
+    """  This function realised find last request number in SQL base.   """
     return session.query(sa.func.coalesce(sa.func.max(Table.column), 0)).scalar()
 
 async def save_users_data(data: dict):
+    """   This is saving function, in cycle parsing data from dictionary.
+    id_requestion is variable for identityfy data others requests.
+    """
     id_requestion = last_id_requestion() + 1
         for item in data["users"]:
             data = UserData(
@@ -45,5 +49,5 @@ async def save_users_data(data: dict):
             email=item['email'],
             login=item['login']
             )
-            session.add(data)
-            session.commit()
+            session.add(data)#Preordering data
+            session.commit()#Save data in SQL

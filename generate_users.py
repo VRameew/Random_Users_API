@@ -3,6 +3,9 @@ from faker import Faker
 fake = Faker(['ru_RU'])
 
 def generate_user(integer: int):
+    """   This function takes integet, start cycle for numb of Integer
+    iterations. In iterations generates random users data
+    and saved in dictionary.    """
     i = 0
     data = {
             "quantity": integer,
