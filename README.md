@@ -40,8 +40,8 @@ Note: Ensure that you have Docker and Docker Compose installed and running on yo
 
 ## EXAMPLE
 
-Example POST request: http://localhost:8448/api/5
-Answer:
+ - Example POST request: http://localhost:8448/api/5
+ - Answer:   
 
 {
     "quantity": 5,
