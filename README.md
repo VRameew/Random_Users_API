@@ -10,6 +10,8 @@ This repository contains code for generating fake user data using the Faker libr
 
 - SQL_ORM_API.py: This file contains the SQLAlchemy ORM code for saving the generated user data to a PostgreSQL database. It defines a UserData class that represents the table structure for storing user data. The file also includes functions for creating the table, retrieving the last ID of the requestion, and saving the user data to the database.
 
+- test_main.py: This file contains unit tests for the main.py file. It uses the TestClient class from the fastapi.testclient module to test the API endpoint /api/{integer}. The test_response_question function generates fake user data using the generate_user function and mocks the save_users_data function. It then makes a POST request to the endpoint and asserts that the response status code is 200 (OK) and the response body matches the generated user data.
+
 ## Docker Compose
 
 To run the application using Docker Compose, follow these steps:
