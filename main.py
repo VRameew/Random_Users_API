@@ -12,4 +12,4 @@ async def response_question(integer: int):
     and return to user like JSON  """
     data = gu(integer)
     save(data)
-    return json.dump(data)
+    return data
