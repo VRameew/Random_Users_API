@@ -14,8 +14,8 @@ def generate_user(integer: int):
     while i < integer:
         gender = fake.random_element(['Male', 'Female'])
         age = fake.random_int(min=14, max=85)
-        FIO = (fake.name_male() if gender == 'Male' else fake.name_female())
-        address = (fake.address())
+        FIO = fake.name_male() if gender == 'Male' else fake.name_female()
+        address = fake.address()
         email = fake.email()
         login = fake.user_name()
 
