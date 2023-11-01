@@ -97,3 +97,4 @@ Note: Ensure that you have Docker and Docker Compose installed and running on yo
 - Faker
 - SQLAlchemy
 - psycopg2
+- Pytest
